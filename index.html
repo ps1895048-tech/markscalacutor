@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PX Marks Calculator</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f5f9;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 400px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #bbb;
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 13px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 17px;
+}
+
+#result {
+    margin-top: 20px;
+    padding: 15px;
+    background: #eef4ff;
+    border-radius: 10px;
+    line-height: 1.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📚 PX Marks Calculator</h1>
+
+<input type="text" id="name" placeholder="Student Name">
+
+<input type="number" id="hindi" placeholder="Hindi Marks">
+<input type="number" id="english" placeholder="English Marks">
+<input type="number" id="math" placeholder="Math Marks">
+<input type="number" id="science" placeholder="Science Marks">
+<input type="number" id="computer" placeholder="Computer Marks">
+
+<button onclick="calculate()">Calculate Result</button>
+
+<div id="result"></div>
+
+</div>
+
+<script>
+
+function calculate() {
+
+    let name = document.getElementById("name").value;
+
+    let hindi = Number(document.getElementById("hindi").value);
+    let english = Number(document.getElementById("english").value);
+    let math = Number(document.getElementById("math").value);
+    let science = Number(document.getElementById("science").value);
+    let computer = Number(document.getElementById("computer").value);
+
+    let total = hindi + english + math + science + computer;
+    let percentage = total / 5;
+
+    let result;
+
+    if (percentage >= 33) {
+        result = "PASS ✅";
+    } else {
+        result = "FAIL ❌";
+    }
+
+    document.getElementById("result").innerHTML =
+
+        "<b>Student:</b> " + name +
+        "<br><b>Total:</b> " + total + " / 500" +
+        "<br><b>Percentage:</b> " + percentage.toFixed(2) + "%" +
+        "<br><b>Result:</b> " + result;
+}
+
+</script>
+
+</body>
+</html>
